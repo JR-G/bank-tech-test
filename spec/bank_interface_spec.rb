@@ -8,5 +8,9 @@ describe Bank do
       account.deposit(500)
       expect(account.balance).to eq 500
     end
+
+    it 'doesn\'t allow a debit/negative deposit' do
+      expect { subject.deposit(-100) }.to raise_error "This isn't a valid deposit"
+    end 
   end
 end
