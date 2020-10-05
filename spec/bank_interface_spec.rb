@@ -20,5 +20,9 @@ describe Bank do
       account_with_balance.withdraw(50)
       expect(account_with_balance.balance).to eq 50
     end
+
+    it 'prevents the account becoming overdrawn' do
+      expect { subject.withdraw(-50) }.to raise_error "Unable to enter overdraft"
+    end
   end
 end
