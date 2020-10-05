@@ -1,16 +1,6 @@
 Bank Tech Test
 ===
 
-- [ ] Describe how you approached designing your solution to the problem.
-
-- [ ] Describe how you structured your code.  Why did you do it this way?
-
-- [ ] Describe how to install and run your code and tests.
-
-- [ ] Include screenshots of your running app.
-
-- [ ] Describe the extensions you would add if you had more time.
-
 Instructions
 ---
 ### Project Setup
@@ -18,3 +8,38 @@ Instructions
 $ git clone https://github.com/JR-G/bank-tech-test
 $ bundle
 ```
+
+### Testing
+```
+$ rspec
+$ rubocop
+```
+
+### Running the App
+Launching it
+```
+$ irb
+```
+Creating a new account (it can also take an optional argument of an opening balance)
+```
+$ account = Bank.new / Bank.new(100)
+```
+To make a withdrawal
+```
+$ account.withdraw(100)
+```
+To make a deposit
+```
+$ account.deposit(100)
+```
+
+Approach
+---
+### Solution
+
+### Structure
+
+### Dependencies
+
+Next Steps
+---
