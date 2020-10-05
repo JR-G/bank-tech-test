@@ -3,12 +3,7 @@ require_relative 'bank'
 class Statement
   
   def print_out(values = false)
-      if values
-        statement = statement(values)
-        puts statement
-        return statement
-      else header
-      end
+    puts values ? statement(values) : header 
   end
 
   private
