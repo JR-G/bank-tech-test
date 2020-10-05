@@ -22,7 +22,7 @@ describe Bank do
     end
 
     it 'prevents the account becoming overdrawn' do
-      expect { subject.withdraw(-50) }.to raise_error "Unable to enter overdraft"
+      expect { account.withdraw(50) }.to raise_error "Unable to enter overdraft"
     end
   end
 end
