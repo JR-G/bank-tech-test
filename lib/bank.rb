@@ -13,6 +13,7 @@ class Bank
   end
 
   def withdraw(amount)
+    fail "Invalid value" if negative?(amount)
     fail "Unable to enter overdraft" if negative?(balance - amount)
 
     @balance -= amount
