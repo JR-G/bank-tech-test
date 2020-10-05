@@ -1,3 +1,5 @@
+require 'bank'
+
 describe Bank do
   let(:account) { Bank.new }
   
