@@ -1,5 +1,3 @@
-require_relative 'bank'
-
 class Statement
   
   def print_out(transactions = false)

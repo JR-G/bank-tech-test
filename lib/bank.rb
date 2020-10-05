@@ -1,4 +1,6 @@
 require_relative 'ledger'
+require_relative 'statement'
+
 class Bank
 
   attr_reader :balance, :transactions, :ledger
@@ -7,6 +9,11 @@ class Bank
     @balance = balance
     @ledger = Ledger.new
     @transactions = ledger.transactions
+    @activity = Statement.new
+  end
+
+  def statement
+    @activity.print_out(transactions)
   end
 
   def deposit(amount, date = Time.new.strftime("%d/%m/%Y"))
