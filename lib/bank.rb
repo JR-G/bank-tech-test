@@ -13,7 +13,7 @@ class Bank
   end
 
   def withdraw(amount)
-    fail "Unable to enter overdraft" if (@balance - amount).negative?
+    fail "Unable to enter overdraft" if negative?(balance - amount)
 
     @balance -= amount
   end

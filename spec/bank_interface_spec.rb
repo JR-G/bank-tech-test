@@ -2,6 +2,7 @@ require 'bank'
 
 describe Bank do
   let(:account) { Bank.new }
+  let(:account_with_balance) { Bank.new(100) }
   
   describe '#deposit' do
     it 'increases balance after a deposit' do
@@ -16,13 +17,16 @@ describe Bank do
 
   describe '#withdraw' do
     it 'decreases balance after a withdrawal' do
-      account_with_balance = Bank.new(100)
       account_with_balance.withdraw(50)
       expect(account_with_balance.balance).to eq 50
     end
 
     it 'prevents the account becoming overdrawn' do
       expect { account.withdraw(50) }.to raise_error "Unable to enter overdraft"
+    end
+
+    it 'prevents a negative value being passed' do
+      expect { account_with_balance.withdraw(-1) }.to raise_error "Invalid value"
     end
   end
 end
