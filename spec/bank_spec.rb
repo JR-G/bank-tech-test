@@ -35,7 +35,7 @@ describe Bank do
     it 'stores bank activity' do
       account.deposit(500)
       account.withdraw(100)
-      expect(account.activity).to eq([[date, 500, nil, 500], [date, nil, 100, 400]])
+      expect(account.transactions).to eq([[date, 500, nil, 500], [date, nil, 100, 400]])
     end
   end
 end

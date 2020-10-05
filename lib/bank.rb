@@ -1,17 +1,19 @@
+require_relative 'ledger'
 class Bank
 
-  attr_reader :balance, :activity
+  attr_reader :balance, :transactions, :ledger
 
   def initialize(balance = 0)
     @balance = balance
-    @activity = []
+    @ledger = Ledger.new
+    @transactions = ledger.transactions
   end
 
   def deposit(amount, date = Time.new.strftime("%d/%m/%Y"))
     fail "This isn't a valid deposit" if negative?(amount)
 
     @balance += amount
-    @activity << [date, amount, nil, balance]
+    ledger.credit(date, amount, balance)
   end
 
   def withdraw(amount, date = Time.new.strftime("%d/%m/%Y"))
@@ -19,7 +21,7 @@ class Bank
     fail "Unable to enter overdraft" if negative?(balance - amount)
 
     @balance -= amount
-    @activity << [date, nil, amount, balance]
+    ledger.debit(date, amount, balance)
   end
 
   private
