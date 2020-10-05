@@ -18,7 +18,7 @@ describe Bank do
     it 'decreases balance after a withdrawal' do
       account_with_balance = Bank.new(100)
       account_with_balance.withdraw(50)
-      expect(account.balance).to eq 50
+      expect(account_with_balance.balance).to eq 50
     end
   end
 end

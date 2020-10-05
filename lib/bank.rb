@@ -10,7 +10,11 @@ class Bank
     fail "This isn't a valid deposit" if negative?(amount)
 
     @balance += amount
+  end
 
+  def withdraw(amount)
+
+    @balance -= amount
   end
 
   private
