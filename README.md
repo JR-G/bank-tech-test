@@ -75,6 +75,8 @@ So that I can view my transactions
 I want to be able to print a bank statement
 ```
 
+### Screenshot
+![Bank Tech Test Screenshot](https://github.com/JR-G/bank-tech-test/blob/master/images/BTT_screenshot.png)
 
 ### Structure
 | Class | Purpose |
