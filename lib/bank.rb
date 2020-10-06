@@ -17,22 +17,17 @@ class Bank
   end
 
   def deposit(amount, date = Time.new.strftime("%d/%m/%Y"))
-    fail "This isn't a valid deposit" if negative?(amount)
+    fail "This isn't a valid deposit" if amount.negative?
 
     @balance += amount
     ledger.credit(date, amount, balance)
   end
 
   def withdraw(amount, date = Time.new.strftime("%d/%m/%Y"))
-    fail "Invalid value" if negative?(amount)
-    fail "Unable to enter overdraft" if negative?(balance - amount)
+    fail "Invalid value" if amount.negative?
+    fail "Unable to enter overdraft" if (balance - amount).negative?
 
     @balance -= amount
     ledger.debit(date, amount, balance)
-  end
-
-  private
-  def negative?(amount)
-    amount.negative?
   end
 end
